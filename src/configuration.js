@@ -177,7 +177,7 @@ var EasyAutocomplete = (function(scope){
 				if (!options.getValue) {
 
 					options.getValue = function(element) {
-						return $(element).text();
+						return jQuery(element).text();
 					};
 				}
 
@@ -297,7 +297,7 @@ var EasyAutocomplete = (function(scope){
 
 				if (defaults.dataType.toUpperCase() === "XML") {
 					defaults.listLocation = function(data) {
-						return $(data).find(defaultlistLocation);
+						return jQuery(data).find(defaultlistLocation);
 					};
 				} else {
 					defaults.listLocation = function(data) {

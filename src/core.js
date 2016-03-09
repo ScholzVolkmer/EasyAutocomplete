@@ -118,7 +118,7 @@ var EasyAutocomplete = (function(scope) {
 			createWrapper();
 			createContainer();	
 
-			$container = $("#" + getContainerId());
+			$container = jQuery("#" + getContainerId());
 
 
 			//Set placeholder for element
@@ -128,7 +128,7 @@ var EasyAutocomplete = (function(scope) {
 
 
 			function createWrapper() {
-				var $wrapper = $("<div>"),
+				var $wrapper = jQuery("<div>"),
 					classes = consts.getValue("WRAPPER_CSS_CLASS");
 
 			
@@ -171,11 +171,11 @@ var EasyAutocomplete = (function(scope) {
 			}
 
 			function createContainer() {
-				var $elements_container = $("<div>").addClass(consts.getValue("CONTAINER_CLASS"));
+				var $elements_container = jQuery("<div>").addClass(consts.getValue("CONTAINER_CLASS"));
 
 				$elements_container
 						.attr("id", getContainerId())
-						.prepend($("<ul>"));
+						.prepend(jQuery("<ul>"));
 
 
 				(function() {
@@ -269,7 +269,7 @@ var EasyAutocomplete = (function(scope) {
 								}
 
 								for(var i = 0, listDataLength = listData.length; i < listDataLength && counter < listBuilders[builderIndex].maxListSize; i += 1) {
-									$item = $("<li><div class='eac-item'></div></li>");
+									$item = jQuery("<li><div class='eac-item'></div></li>");
 									
 
 									(function() {
@@ -535,7 +535,7 @@ var EasyAutocomplete = (function(scope) {
 
 							settings.data = config.get("preparePostData")(settings.data, inputPhrase);
 
-							$.ajax(settings) 
+							jQuery.ajax(settings) 
 								.done(function(data) {
 
 									var listBuilders = listBuilderService.init(data);
@@ -715,7 +715,7 @@ var EasyAutocomplete = (function(scope) {
 
 	scope.inputHasId = function(input) {
 
-		if($(input).attr("id") !== undefined && $(input).attr("id").length > 0) {
+		if(jQuery(input).attr("id") !== undefined && jQuery(input).attr("id").length > 0) {
 			return true;
 		} else {
 			return false;
@@ -729,11 +729,11 @@ var EasyAutocomplete = (function(scope) {
 
 		do {
 			fieldId = "eac-" + Math.floor(Math.random() * 10000);		
-		} while ($("#" + fieldId).length !== 0);
+		} while (jQuery("#" + fieldId).length !== 0);
 		
 		elementId = scope.consts.getValue("CONTAINER_ID") + fieldId;
 
-		$(input).attr("id", fieldId);
+		jQuery(input).attr("id", fieldId);
  
 	};
 
@@ -747,10 +747,10 @@ var EasyAutocomplete = (function(scope) {
 })(EasyAutocomplete || {});
 
 
-$.fn.easyAutocomplete = function(options) {
+jQuery.fn.easyAutocomplete = function(options) {
 
 	return this.each(function() {
-		var $this = $(this),
+		var $this = jQuery(this),
 			eacHandle = new EasyAutocomplete.main($this, options);
 
 		if (!EasyAutocomplete.inputHasId($this)) {
@@ -764,9 +764,9 @@ $.fn.easyAutocomplete = function(options) {
 	});	
 };
 
-$.fn.getSelectedItemIndex = function() {
+jQuery.fn.getSelectedItemIndex = function() {
 
-	var inputId = $(this).attr("id");
+	var inputId = jQuery(this).attr("id");
 
 	if (inputId !== undefined) {
 		return EasyAutocomplete.getHandle(inputId).getSelectedItemIndex();
@@ -775,9 +775,9 @@ $.fn.getSelectedItemIndex = function() {
 	return -1;
 };
 
-$.fn.getItems = function () {
+jQuery.fn.getItems = function () {
 
-	var inputId = $(this).attr("id");
+	var inputId = jQuery(this).attr("id");
 
 	if (inputId !== undefined) {
 		return EasyAutocomplete.getHandle(inputId).getItems();
@@ -786,9 +786,9 @@ $.fn.getItems = function () {
 	return -1;
 };
 
-$.fn.getItemData = function(index) {
+jQuery.fn.getItemData = function(index) {
 
-	var inputId = $(this).attr("id");
+	var inputId = jQuery(this).attr("id");
 
 	if (inputId !== undefined && index > -1) {
 		return EasyAutocomplete.getHandle(inputId).getItemData(index);
@@ -797,9 +797,9 @@ $.fn.getItemData = function(index) {
 	return -1;
 };
 
-$.fn.getSelectedItemData = function() {
+jQuery.fn.getSelectedItemData = function() {
 
-	var inputId = $(this).attr("id");
+	var inputId = jQuery(this).attr("id");
 
 	if (inputId !== undefined) {
 		return EasyAutocomplete.getHandle(inputId).getSelectedItemData();

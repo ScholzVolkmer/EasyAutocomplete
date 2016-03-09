@@ -140,7 +140,7 @@ var EasyAutocomplete = (function(scope) {
 
 				if (listLocation !== undefined) {
 					if (typeof listLocation === "string") {
-						builder.data = $(data).find(listLocation);
+						builder.data = jQuery(data).find(listLocation);
 					} else if (typeof listLocation === "function") {
 
 						builder.data = listLocation(data);
@@ -181,7 +181,7 @@ var EasyAutocomplete = (function(scope) {
 			}
 
 
-			$(builder.data).find(builder.xmlElementName).each(function() {
+			jQuery(builder.data).find(builder.xmlElementName).each(function() {
 				simpleList.push(this);
 			});
 
